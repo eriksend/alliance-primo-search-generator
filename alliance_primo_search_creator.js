@@ -82,7 +82,7 @@ var WPC_library_basic_details = ["WPC", "WPC", "http://libsearch.warnerpacific.e
 var WSU_library_basic_details = ["WSU", "WSU", "http://searchit.libraries.wsu.edu", "Washington State University"];
 var WOU_library_basic_details = ["WOU", "WOU", "http://alliance-primo.hosted.exlibrisgroup.com", "Western Oregon University"];
 var WWU_library_basic_details = ["WWU", "WWU", "http://onesearch.library.wwu.edu", "Western Washington University"];
-var WHITC_library_basic_details = ["WHITC", "WHITC", "http://sherlock.whitman.edu", "Whitman College"];
+var WHITC_library_basic_details = ["WHITC", "WHITC_NEW", "http://sherlock.whitman.edu", "Whitman College"];
 var WU_library_basic_details = ["WU", "WU", "http://alliance-primo.hosted.exlibrisgroup.com", "Willamette University Hatfield Library"];
 var WU_LAW_library_basic_details = ["WU", "WU_LAW" , "http://alliance-primo.hosted.exlibrisgroup.com", "Willamette University J.W. Long Law Library"];
 
@@ -504,10 +504,11 @@ var WWU_scopes= {
 	"Books":"All collections"
 }
 var WHITC_scopes= {
-	"whitc_alma":"Whitman Library",
+	"whitman_lib":"Whitman Library",
 	"whitc_alma_summit":"Summit ",
 	"primo":"Articles",
-	"primo_central":"Whitman + Summit + Articles"
+	"primo_central":"Whitman + Summit + Articles",
+	"whitc_special_collections":"Special Collections"
 }
 var WU_scopes = {
 	"WU_Libraries_Summit" : "WU Libraries & Summit",
@@ -1074,7 +1075,7 @@ function createDeepSearchLink() {
 	if(isEmpty(criteria)) {
 		var d = new Date();
 		var n = d.getTime();
-		$('#result').val('<div>\r	<form>\r		<fieldset>\r			<legend>Search ' + institution_name + ' Primo</legend>\r				<label for="' + n + '">Keywords: </label><input type="text" id="' + n + '"><a class="search_link' + n + '"><button>Search</button></a>\r	<script type="text/javascript">\r	$("a.search_link' + n + '").on("click",function' + n + ');\r	function function'+ n + '(){\r	var target = "');
+		$('#result').val('<div>\r	<form  onsubmit="return false;">\r		<fieldset>\r			<legend>Search ' + institution_name + ' Primo</legend>\r				<label for="' + n + '">Keywords: </label><input type="text" id="' + n + '"><a class="search_link' + n + '"><button>Search</button></a>\r	<script type="text/javascript">\r	$("a.search_link' + n + '").on("click",function' + n + ');\r	function function'+ n + '(){\r	var target = "');
 		$('#result').val($('#result').val() + url + '"');
 		$('#result').val($('#result').val() + "+document" + "." + "getElementById" + "('" + n + "')" + "." + "value");
 		if(facet_query.length>0) $('#result').val($('#result').val() + '+"' + facet_query + '"');
